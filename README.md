@@ -1,2 +1,3 @@
-# lukso-hack-WeCode
+# WeCode
+
 Teach &amp; Learn how to code
