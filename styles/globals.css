@@ -23,3 +23,278 @@ a:active {
 * {
   box-sizing: border-box;
 }
+
+:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: "Poppins-Regular";
+  font-size: 15px;
+  color: #0f0f0f;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+h3 {
+  font-family: "Poppins-SemiBold";
+}
+
+.form-submit {
+  width: 100%;
+  background-color: #ee6d4d;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-submit:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.form-row {
+  margin-bottom: 24px;
+}
+
+.form-row label {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-row.form-group {
+  display: flex;
+}
+
+.form-row.form-group .form-holder {
+  width: 50%;
+  margin-right: 21px;
+}
+
+.form-row.form-group .form-holder:last-child {
+  margin-right: 0;
+}
+
+.form-holder {
+  position: relative;
+}
+
+.form-holder i {
+  position: absolute;
+  top: 11px;
+  right: 19px;
+  font-size: 17px;
+  color: #999;
+}
+
+.form-control {
+  height: 42px;
+  border: 1px solid #e6e6e6;
+  background: none;
+  width: 100%;
+  padding: 0 18px;
+}
+
+.form-control:focus {
+  border-color: #f3d4b7;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #999;
+  font-size: 13px;
+}
+
+.form-control::-moz-placeholder {
+  color: #999;
+  font-size: 13px;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #999;
+  font-size: 13px;
+}
+
+.form-control:-moz-placeholder {
+  color: #999;
+  font-size: 13px;
+}
+
+textarea.form-control {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.option {
+  color: #999;
+}
+
+.checkbox {
+  position: relative;
+}
+
+.checkbox label {
+  padding-left: 21px;
+  cursor: pointer;
+  color: #999;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 12px;
+  width: 13px;
+  border-radius: 2px;
+  background-color: #ebebeb;
+  border: 1px solid #ccc;
+  font-family: "Font Awesome";
+  color: #000;
+  font-size: 10px;
+  font-weight: bolder;
+}
+
+.checkmark:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  content: "\f178";
+}
+
+.checkbox-circle {
+  margin-top: 41px;
+  margin-bottom: 46px;
+}
+
+.checkbox-circle label {
+  cursor: pointer;
+  padding-left: 26px;
+  color: #999;
+  display: block;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.checkbox-circle label.active .tooltip {
+  display: block;
+}
+
+.checkbox-circle input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-circle input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-circle .checkmark {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #ebebeb;
+  border: 1px solid #cdcdcd;
+}
+
+.checkbox-circle .checkmark:after {
+  content: "";
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #666666;
+  position: absolute;
+  display: none;
+}
+
+.checkbox-circle .tooltip {
+  padding: 9px 22px;
+  background: #f2f2f2;
+  line-height: 1.8;
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 28px;
+  display: none;
+}
+
+.checkbox-circle .tooltip:before {
+  content: "";
+  border-bottom: 10px solid #f2f2f2;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  position: absolute;
+  bottom: 100%;
+}
+
+.padding {
+  padding: 3rem !important;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  border-color: #ebebeb;
+  border-radius: 2px;
+  color: #8b95a5;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: inherit;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.form-control:focus {
+  border-color: #ee6d4d;
+  color: #4d5259;
+  -webkit-box-shadow: 0 0 0 0.1rem rgba(51, 202, 187, 0);
+  box-shadow: 0 0 0 0.1rem rgba(101, 69, 235, 0);
+}
+
+.custom-radio {
+  cursor: pointer;
+}
+
+.custom-control {
+  display: -webkit-box;
+  display: flex;
+  min-width: 18px;
+}

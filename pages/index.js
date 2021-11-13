@@ -1,20 +1,19 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import Layout from '../components/layout'
 import styles from './home.module.css'
 
 export default function Home() {
   return (
-    <div>
-      <Layout>
-        <h1 className={styles.title}>
-          Welcome to WeCode
-        </h1>
+    <Layout>
+      <h1 className={styles.title}>
+        Welcome to WeCode
+      </h1>
 
-        <p className={styles.description}>
-          Join communities by learning, building, and earning together.
-        </p>
+      <p className={styles.description}>
+        Join communities by learning, building, and earning together.
+      </p>
 
+      <div className={styles.container}>
         <div className={styles.grid}>
           <Link href="/learn">
             <a className={styles.card}>
@@ -30,19 +29,7 @@ export default function Home() {
             </a>
           </Link>
         </div>
-      </Layout>
-      <footer className={styles.footer}>
-        <a
-          href="https://lukso.network/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/lukso_token_logo.png" alt="Lukso Token Logo" width={16} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+      </div>
+    </Layout>
   );
 }
