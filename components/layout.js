@@ -5,7 +5,7 @@ import useAddress from '../hooks/useAddress'
 import Profile from './profile'
 import styles from './layout.module.css'
 
-export default function Layout({ children, page, back }) {
+export default function Layout({ children, page, back, publish = true }) {
   const { address } = useAddress();
 
   return (
@@ -28,19 +28,24 @@ export default function Layout({ children, page, back }) {
           ) : (
             <div />
           )}
-          <Profile address={address} />
+          <div className={styles.actions}>
+            {publish && (
+              <Link href="/publish">
+                <a className={styles.publish}>
+                  Publish &rarr;
+                </a>
+              </Link>
+            )}
+            <Profile address={address} />
+          </div>
         </div>
       )}
       <main className={styles.main}>
         {address ? children : (
-          <>
-            <div className={styles.login}>
-              Please login by passing your UP profile address as a query parameter
-            </div>
-            <div className={styles.code}>
-              http://localhost/?address=0x74738d3b6B27018f3836EA990d715BdAB21615C6
-            </div>
-          </>
+          <div className={styles.login}>
+            Please login by passing your UP profile address as a query parameter
+            http://localhost/?address=0x74738d3b6B27018f3836EA990d715BdAB21615C6
+          </div>
         )}
       </main>
       <footer className={styles.footer}>

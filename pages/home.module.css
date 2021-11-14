@@ -27,58 +27,58 @@
   font-size: 1.5rem;
 }
 
-.container {
+.lessons {
   display: flex;
-  justify-content: space-around;
-}
-
-.grid {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #293241;
-  border-color: #3d5a80;
+.lesson {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  width: 100%;
+  max-width: 600px;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-  color: #ee6d4d;
+.subject {
+  margin-left: 19px;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.code {
+  padding: 0.75rem;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.actions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.action {
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: #98C1D9;
+  color: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.action:hover {
+  background-color: #EE6D4D;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
