@@ -49,7 +49,10 @@
 }
 
 .subject {
-  margin-left: 19px;
+  margin-left: 20px;
+  font-size: 0.9rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace;
 }
 
 .code {

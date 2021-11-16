@@ -3,12 +3,14 @@ import s3 from '../lukso/s3';
 import hash from 'object-hash';
 import useAddress from '../hooks/useAddress';
 import Layout from '../components/layout'
+import { createToken, getTokenByOwner, getTokenContract } from '../lukso/token';
 
 export default function Build() {
   const form = useRef();
   const { address } = useAddress();
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
+
     const lesson = {
       subject: event.target.subject.value,
       content: event.target.content.value,
@@ -20,6 +22,16 @@ export default function Build() {
     const data = JSON.stringify(lesson);
     const key = 'lesson-' + hash(lesson);
     try {
+      // allocate token for a contributor if needed
+      let tokenAddress = await getTokenByOwner(address);
+      if (!tokenAddress) {
+        await createToken({
+          name: 'WeCode',
+          symbol: 'WCD',
+          contributor: address,
+        });
+      }
+
       await s3.upload(key, data);
 
       let index = {

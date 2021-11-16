@@ -1,6 +1,6 @@
 import { ERC725 } from '@erc725/erc725.js';
 import { config } from './ipfs';
-import { provider } from './provider';
+import web3 from './web3';
 
 const schema = [
   {
@@ -27,5 +27,5 @@ const schema = [
 ];
 
 export default function getErc725({ address }) {
-  return new ERC725(schema, address, provider, config);
+  return new ERC725(schema, address, web3.currentProvider, config);
 }

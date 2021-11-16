@@ -1,12 +1,34 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import Head from 'next/head'
-import useAddress from '../hooks/useAddress'
-import Profile from './profile'
-import styles from './layout.module.css'
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import Head from 'next/head';
+import useAddress from '../hooks/useAddress';
+import Profile from './profile';
+import styles from './layout.module.css';
+import { getTokenContract, getTokenByOwner } from '../lukso/token';
 
 export default function Layout({ children, page, back, publish = true }) {
   const { address } = useAddress();
+  const [balance, setBalance] = useState({
+    amount: 0,
+    symbol: '',
+  });
+
+  useEffect(async () => {
+    try {
+      if (!address) return;
+      const tokenAddress = await getTokenByOwner(address);
+      if (!tokenAddress) {
+        return;
+      }
+      const tokenContract = getTokenContract(tokenAddress);
+      const symbol = await tokenContract.methods.symbol().call();
+      const amount = await tokenContract.methods.balanceOf(address).call();
+      setBalance({ amount, symbol });
+    } catch (e) {
+      console.error(e);
+    }
+  }, [address]);
 
   return (
     <div className={styles.container}>
@@ -36,7 +58,12 @@ export default function Layout({ children, page, back, publish = true }) {
                 </a>
               </Link>
             )}
-            <Profile address={address} />
+            <div className={styles.profile}>
+              <Profile address={address} />
+              <div className={styles.balance}>
+                {`${balance.amount} ${balance.symbol}`}
+              </div>
+            </div>
           </div>
         </div>
       )}

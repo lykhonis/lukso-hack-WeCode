@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@erc725/erc725.js": "^0.7.0",
+    "@lukso/lsp-factory.js": "^1.1.2",
     "aws-sdk": "^2.1028.0",
+    "keccak256": "^1.0.3",
     "markdown-to-jsx": "^7.1.3",
     "nano-ipfs-store": "^0.1.3",
     "next": "12.0.3",
@@ -20,7 +22,8 @@
     "react-router-dom": "^6.0.2",
     "remark": "^14.0.1",
     "remark-html": "^15.0.0",
-    "web3": "^1.6.0"
+    "web3": "^1.6.0",
+    "web3-eth-contract": "^1.6.1"
   },
   "devDependencies": {
     "eslint": "7.32.0",
