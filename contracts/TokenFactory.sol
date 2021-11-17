@@ -18,7 +18,7 @@ contract WeCodeTokenFactory {
         string memory symbol,
         address contributor
     ) external {
-        WeCodeToken token = new WeCodeToken(name, symbol, contributor);
+        WeCodeToken token = new WeCodeToken(msg.sender, name, symbol, contributor);
         tokenAddresses.push(token);
         emit WeCodeTokenCreated(token, contributor);
     }

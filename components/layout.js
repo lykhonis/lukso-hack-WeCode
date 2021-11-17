@@ -5,7 +5,8 @@ import Head from 'next/head';
 import useAddress from '../hooks/useAddress';
 import Profile from './profile';
 import styles from './layout.module.css';
-import { getTokenContract, getTokenByOwner } from '../lukso/token';
+import { getTokenContract, getTokenByOwner, createToken } from '../lukso/token';
+import web3 from '../lukso/web3';
 
 export default function Layout({ children, page, back, publish = true }) {
   const { address } = useAddress();
@@ -17,13 +18,24 @@ export default function Layout({ children, page, back, publish = true }) {
   useEffect(async () => {
     try {
       if (!address) return;
-      const tokenAddress = await getTokenByOwner(address);
+      // allocate token for a contributor if needed
+      let tokenAddress = await getTokenByOwner(address);
+      if (!tokenAddress) {
+        const suffix = address.substr(address.length - 4);
+        await createToken({
+          name: `WeCode ${suffix}`,
+          symbol: `WCD-${suffix}`,
+          contributor: address,
+        });
+        tokenAddress = await getTokenByOwner(address);
+      }
+      // huh?!
       if (!tokenAddress) {
         return;
       }
-      const tokenContract = getTokenContract(tokenAddress);
+      const tokenContract = await getTokenContract(tokenAddress);
       const symbol = await tokenContract.methods.symbol().call();
-      const amount = await tokenContract.methods.balanceOf(address).call();
+      const amount = parseFloat(web3.utils.fromWei(await tokenContract.methods.balanceOf(address).call()));
       setBalance({ amount, symbol });
     } catch (e) {
       console.error(e);

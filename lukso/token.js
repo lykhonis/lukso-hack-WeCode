@@ -11,558 +11,589 @@ export const TokenKeys = {
 
 export const TokenAbi = [
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "name",
-        type: "string"
+        "internalType": "address",
+        "name": "admin_",
+        "type": "address"
       },
       {
-        internalType: "string",
-        name: "symbol",
-        type: "string"
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
       },
       {
-        internalType: "address",
-        name: "contributor",
-        type: "address"
-      }
-    ],
-    stateMutability: "nonpayable",
-    type: "constructor"
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "operator",
-        type: "address"
+        "internalType": "string",
+        "name": "symbol",
+        "type": "string"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "tokenOwner",
-        type: "address"
+        "internalType": "address",
+        "name": "contributor_",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
-      }
-    ],
-    name: "AuthorizedOperator",
-    type: "event"
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "address",
-        name: "contributor",
-        type: "address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "tokenOwner",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "student",
-        type: "address"
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "AuthorizedOperator",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "contributor",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
-      }
-    ],
-    name: "Awarded",
-    type: "event"
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "bytes32",
-        name: "key",
-        type: "bytes32"
+        "indexed": false,
+        "internalType": "address",
+        "name": "student",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "value",
-        type: "bytes"
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
-    name: "DataChanged",
-    type: "event"
+    "name": "Awarded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address"
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address"
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "value",
+        "type": "bytes"
       }
     ],
-    name: "OwnershipTransferred",
-    type: "event"
+    "name": "DataChanged",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "awardee",
-        type: "address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
       }
     ],
-    name: "Redeemed",
-    type: "event"
+    "name": "OwnershipTransferred",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "operator",
-        type: "address"
+        "indexed": false,
+        "internalType": "address",
+        "name": "awardee",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "tokenOwner",
-        type: "address"
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
-    name: "RevokedOperator",
-    type: "event"
+    "name": "Redeemed",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "operator",
-        type: "address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "tokenOwner",
+        "type": "address"
+      }
+    ],
+    "name": "RevokedOperator",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "bool",
-        name: "force",
-        type: "bool"
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes"
-      }
-    ],
-    name: "Transfer",
-    type: "event"
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "operator",
-        type: "address"
+        "indexed": false,
+        "internalType": "bool",
+        "name": "force",
+        "type": "bool"
       },
       {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       }
     ],
-    name: "authorizeOperator",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "name": "Transfer",
+    "type": "event"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "admin",
+    "outputs": [
       {
-        internalType: "address",
-        name: "student",
-        type: "address"
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
-    name: "award",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "awardAmount",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "tokenOwner",
-        type: "address"
-      }
-    ],
-    name: "balanceOf",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
-  },
-  {
-    inputs: [],
-    name: "decimals",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
-  },
-  {
-    inputs: [
-      {
-        internalType: "bytes32[]",
-        name: "_keys",
-        type: "bytes32[]"
-      }
-    ],
-    name: "getData",
-    outputs: [
-      {
-        internalType: "bytes[]",
-        name: "values",
-        type: "bytes[]"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "operator",
-        type: "address"
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "tokenOwner",
-        type: "address"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
-    name: "isOperatorFor",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
+    "name": "authorizeOperator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "name",
-    outputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string"
+        "internalType": "address",
+        "name": "student",
+        "type": "address"
       }
     ],
-    stateMutability: "view",
-    type: "function"
+    "name": "award",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "owner",
-    outputs: [
+    "inputs": [],
+    "name": "awardAmount",
+    "outputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    stateMutability: "view",
-    type: "function"
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "awardee",
-        type: "address"
+        "internalType": "address",
+        "name": "tokenOwner",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "contributor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "_keys",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "getData",
+    "outputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "values",
+        "type": "bytes[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
+        "internalType": "address",
+        "name": "tokenOwner",
+        "type": "address"
       }
     ],
-    name: "redeem",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
-  },
-  {
-    inputs: [
+    "name": "isOperatorFor",
+    "outputs": [
       {
-        internalType: "address",
-        name: "from",
-        type: "address"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
-    name: "redeemAll",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
-  },
-  {
-    inputs: [
+    "inputs": [],
+    "name": "name",
+    "outputs": [
       {
-        internalType: "address",
-        name: "operator",
-        type: "address"
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       }
     ],
-    name: "revokeOperator",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
-    name: "setAwardAmount",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32[]",
-        name: "_keys",
-        type: "bytes32[]"
+        "internalType": "address",
+        "name": "awardee",
+        "type": "address"
       },
       {
-        internalType: "bytes[]",
-        name: "_values",
-        type: "bytes[]"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
-    name: "setData",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "name": "redeem",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes4",
-        name: "interfaceId",
-        type: "bytes4"
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
       }
     ],
-    name: "supportsInterface",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
+    "name": "redeemAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "symbol",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string"
-      }
-    ],
-    stateMutability: "view",
-    type: "function"
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "tokenSupplyCap",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256"
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
       }
     ],
-    stateMutability: "view",
-    type: "function"
+    "name": "revokeOperator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "totalSupply",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       }
     ],
-    stateMutability: "view",
-    type: "function"
+    "name": "setAwardAmount",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "from",
-        type: "address"
+        "internalType": "bytes32[]",
+        "name": "_keys",
+        "type": "bytes32[]"
       },
       {
-        internalType: "address",
-        name: "to",
-        type: "address"
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256"
-      },
-      {
-        internalType: "bool",
-        name: "force",
-        type: "bool"
-      },
-      {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes"
+        "internalType": "bytes[]",
+        "name": "_values",
+        "type": "bytes[]"
       }
     ],
-    name: "transfer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "name": "setData",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "from",
-        type: "address[]"
-      },
-      {
-        internalType: "address[]",
-        name: "to",
-        type: "address[]"
-      },
-      {
-        internalType: "uint256[]",
-        name: "amount",
-        type: "uint256[]"
-      },
-      {
-        internalType: "bool",
-        name: "force",
-        type: "bool"
-      },
-      {
-        internalType: "bytes[]",
-        name: "data",
-        type: "bytes[]"
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
       }
     ],
-    name: "transferBatch",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
       {
-        internalType: "address",
-        name: "newOwner",
-        type: "address"
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       }
     ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function"
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tokenSupplyCap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "force",
+        "type": "bool"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "transfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "from",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "to",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amount",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bool",
+        "name": "force",
+        "type": "bool"
+      },
+      {
+        "internalType": "bytes[]",
+        "name": "data",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "transferBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ];
 
@@ -571,10 +602,10 @@ export async function createToken({
   symbol,
   contributor,
 }) {
-  const wallet = await getWallet();
-  const factory = getTokenFactoryContract();
+  console.log(`Creating token: ${name} (${symbol})`);
+  const factory = await getTokenFactoryContract();
   const createToken = factory.methods.createToken(name, symbol, contributor);
-  const gas = (await createToken.estimateGas()) * 110 / 100;
+  const gas = web3.utils.toBN(await createToken.estimateGas()).mul(web3.utils.toBN(110)).divRound(web3.utils.toBN(100));
   const token = await createToken.send({ gas });
   console.log(token);
 
@@ -593,12 +624,21 @@ export async function createToken({
   // return token.LSP7DigitalAsset.address;
 }
 
-export function getTokenContract(address) {
-  return new web3.eth.Contract(TokenAbi, address);
+export async function getTokenContract(address) {
+  const wallet = await getWallet();
+  return new web3.eth.Contract(TokenAbi, address, { from: wallet });
+}
+
+export async function awardToken(address, { student }) {
+  const contract = await getTokenContract(address);
+  const award = contract.methods.award(student);
+  const gas = web3.utils.toBN(await award.estimateGas()).mul(web3.utils.toBN(110)).divRound(web3.utils.toBN(100));
+  // const result = await award.send({ gas });
+  console.log(gas.toString());
 }
 
 export async function getTokenMetadata(address) {
-  const contract = getTokenContract(address);
+  const contract = await getTokenContract(address);
   const data = await contract.methods.getData([
     TokenKeys.Name,
     TokenKeys.Symbol,
@@ -621,7 +661,7 @@ export async function getTokenByOwner(address) {
   });
   // console.log(logs);
   if (logs.length) {
-    const tokenAddress = web3.eth.abi.decodeParameter('address', logs[0].data);
+    const tokenAddress = web3.eth.abi.decodeParameter('address', logs[logs.length - 1].data);
     console.log(`Found token contract ${tokenAddress} by ${address}`);
     return tokenAddress;
   } else {

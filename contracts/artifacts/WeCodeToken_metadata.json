@@ -1,12 +1,17 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [
+					{
+						"internalType": "address",
+						"name": "admin_",
+						"type": "address"
+					},
 					{
 						"internalType": "string",
 						"name": "name",
@@ -19,7 +24,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "contributor",
+						"name": "contributor_",
 						"type": "address"
 					}
 				],
@@ -196,6 +201,19 @@
 				"type": "event"
 			},
 			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -253,6 +271,19 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contributor",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -583,6 +614,9 @@
 				"isOperatorFor(address,address)": {
 					"details": "Returns amount of tokens `operator` address has access to from `tokenOwner`. Operators can send and burn tokens on behalf of their owners. The tokenOwner is their own operator."
 				},
+				"name()": {
+					"details": "Returns the name of the token."
+				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
@@ -600,6 +634,9 @@
 				},
 				"supportsInterface(bytes4)": {
 					"details": "See {IERC165-supportsInterface}."
+				},
+				"symbol()": {
+					"details": "Returns the symbol of the token, usually a shorter version of the name."
 				},
 				"tokenSupplyCap()": {
 					"details": "Returns the number of tokens that have been minted."
@@ -636,7 +673,7 @@
 		"compilationTarget": {
 			"contracts/Token.sol": "WeCodeToken"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -670,6 +707,14 @@
 			"urls": [
 				"bzz-raw://ab6c316b62c86207247f4b9f42318e3c5c010c0c4a21347ff9636955892a3fbb",
 				"dweb:/ipfs/QmVjH3SdHTuRPTeBAdSKtPYaYi4vwLesmTzzJ8PRL1biK7"
+			]
+		},
+		"@erc725/smart-contracts/contracts/utils/ERC725Utils.sol": {
+			"keccak256": "0xa574b8c31218f4a90929c2df1e009ad0e9a4af4ca012246c8d66041f25ad4305",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://d80188e9148bd68f593ee78eaff71a040c4076df23fc123664a7c50271448ab6",
+				"dweb:/ipfs/QmSuybWJu48BMqebGj4DKKfnE9sRrey7bVqdVRHtE21NZo"
 			]
 		},
 		"@erc725/smart-contracts/contracts/utils/OwnableUnset.sol": {
@@ -737,11 +782,11 @@
 			]
 		},
 		"contracts/Token.sol": {
-			"keccak256": "0xbb9bdbe721732410aeef22b8ef881eea842782efc4fd9ac8b34b8d7529ca59f3",
+			"keccak256": "0x826b8e5487cbca7c056867230dda4997db8237c3da2884faf42b88c70750a7a0",
 			"license": "CC0-1.0",
 			"urls": [
-				"bzz-raw://91a07ac823f28d744a1d357fec616c4a299fae245738c77f8bc07a4b11e08a39",
-				"dweb:/ipfs/QmYDL3FCwiCrkYx1pMukQYsGA9v2GMovPnmoRiMGsDS1bm"
+				"bzz-raw://417dfa77ad5c97d5b5077c5ff5eeca1fd12e3648ef506f645212eafe5fff85d9",
+				"dweb:/ipfs/QmSBJucmX9dcBgy2RV7TC2za83dH9XxbjmY7ytAQp1Nq3x"
 			]
 		},
 		"lukso-contracts/contracts/LSP1UniversalReceiver/ILSP1UniversalReceiver.sol": {
@@ -758,6 +803,22 @@
 			"urls": [
 				"bzz-raw://ce29f430a30f918092554f57b57cad8a0d9d1372d736d0b2812fb9dc980c7017",
 				"dweb:/ipfs/Qmcar58tb26h1Y8dAAY54CuXrPVe4khJZ3eu2hM2sgBeaR"
+			]
+		},
+		"lukso-contracts/contracts/LSP4DigitalAssetMetadata/ILSP4Compatibility.sol": {
+			"keccak256": "0xdd01160c73029deea9c544e94317cc05547ba78ec077467d7b24b2f8a63397f1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://125ccf093b5f8401fbceba3c1841034574c6a5c4c3b5cf8cb6d95b015e2b0d4b",
+				"dweb:/ipfs/QmSFK7P6g8ihJcXc9oip6L9D2TYsVbuy6bKC9XnVeRp3xz"
+			]
+		},
+		"lukso-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Compatibility.sol": {
+			"keccak256": "0xf9515e8ad379521926ed97b149f388dc6badc924e9731bda1f69ccc5795c6b3a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3368b0dcb657b1a829776f009bdb4b20803785bd7bd444e816ff155200582775",
+				"dweb:/ipfs/QmWHjiiZDHYgugSsVCoXFN1TGgJ4AnKzjYNhxBt3xUZ4tX"
 			]
 		},
 		"lukso-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol": {

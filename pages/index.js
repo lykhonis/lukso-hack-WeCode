@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Markdown from 'markdown-to-jsx';
 import useAddress from '../hooks/useAddress'
-import { getTokenByOwner, getTokenContract } from '../lukso/token';
+import { getTokenByOwner, awardToken } from '../lukso/token';
 import s3 from '../lukso/s3';
 import Layout from '../components/layout'
 import styles from './home.module.css'
@@ -39,11 +39,8 @@ export default function Home() {
   const completLesson = useCallback(async (lesson) => {
     try {
       const tokenAddress = await getTokenByOwner(lesson.author);
-      const tokenContract = getTokenContract(tokenAddress);
-      const award = tokenContract.methods.award(address);
-      const gas = (await award.estimateGas()) * 110 / 100;
-      // const result = await award.send({ gas });
-      console.log(gas);
+      const result = await awardToken(tokenAddress, { student: address });
+      console.log(result);
     } catch (e) {
       console.error(e);
     }
