@@ -1,0 +1,23 @@
+.tokens {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  align-self: center;
+}
+
+.token {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 10px;
+  margin: 4px 4px;
+  text-decoration: none;
+  color: white;
+  background-color: #3d5a80;
+}

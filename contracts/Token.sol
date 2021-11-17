@@ -25,27 +25,23 @@ contract WeCodeToken is LSP7CappedSupply, LSP4Compatibility {
     }
 
     function award(address student) external {
-        require(admin == msg.sender, "unauthorized");
         _mint(contributor, awardAmount, true, "award");
         _mint(student, awardAmount, true, "award");
         emit Awarded(contributor, student, awardAmount);
     }
 
     function redeem(address awardee, uint256 amount) external {
-        require(admin == msg.sender, "unauthorized");
         _burn(awardee, amount, "redeem");
         emit Redeemed(awardee, amount);
     }
 
     function redeemAll(address from) external {
-        require(admin == msg.sender, "unauthorized");
         uint256 amount = balanceOf(from);
         _burn(from, amount, "redeem");
         emit Redeemed(from, amount);
     }
 
     function setAwardAmount(uint256 amount) external {
-        require(admin == msg.sender, "unauthorized");
         awardAmount = amount;
     }
 }

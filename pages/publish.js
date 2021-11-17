@@ -1,10 +1,12 @@
 import { useCallback, useRef } from 'react';
+import { useRouter } from 'next/router';
 import s3 from '../lukso/s3';
 import hash from 'object-hash';
 import useAddress from '../hooks/useAddress';
 import Layout from '../components/layout'
 
-export default function Build() {
+export default function Publish() {
+  const router = useRouter();
   const form = useRef();
   const { address } = useAddress();
   const handleSubmit = useCallback(async (event) => {
@@ -37,13 +39,14 @@ export default function Build() {
       await s3.upload('index', JSON.stringify(index));
 
       form.current.reset();
+      router.replace('/');
     } catch (e) {
       console.error(e);
     }
-  }, [address, form]);
+  }, [address, form, router]);
 
   return (
-    <Layout page="Build" back publish={false}>
+    <Layout page="Publish" back publish={false}>
       <form
         ref={form}
         onSubmit={handleSubmit}>

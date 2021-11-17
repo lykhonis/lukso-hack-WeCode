@@ -8,38 +8,41 @@ import styles from './layout.module.css';
 import { getTokenContract, getTokenByOwner, createToken } from '../lukso/token';
 import web3 from '../lukso/web3';
 
-export default function Layout({ children, page, back, publish = true }) {
+export default function Layout({ children, page, back, publish = true, stats = true }) {
   const { address } = useAddress();
   const [balance, setBalance] = useState({
     amount: 0,
     symbol: '',
   });
 
-  useEffect(async () => {
-    try {
-      if (!address) return;
-      // allocate token for a contributor if needed
-      let tokenAddress = await getTokenByOwner(address);
-      if (!tokenAddress) {
-        const suffix = address.substr(address.length - 4);
-        await createToken({
-          name: `WeCode ${suffix}`,
-          symbol: `WCD-${suffix}`,
-          contributor: address,
-        });
-        tokenAddress = await getTokenByOwner(address);
+  useEffect(() => {
+    async function fetchToken() {
+      try {
+        if (!address) return;
+        // allocate token for a contributor if needed
+        let tokenAddress = await getTokenByOwner(address);
+        if (!tokenAddress) {
+          const suffix = address.substr(address.length - 4);
+          await createToken({
+            name: `WeCode ${suffix}`,
+            symbol: `WCD-${suffix}`,
+            contributor: address,
+          });
+          tokenAddress = await getTokenByOwner(address);
+        }
+        // huh?!
+        if (!tokenAddress) {
+          return;
+        }
+        const tokenContract = await getTokenContract(tokenAddress);
+        const symbol = await tokenContract.methods.symbol().call();
+        const amount = parseFloat(web3.utils.fromWei(await tokenContract.methods.balanceOf(address).call()));
+        setBalance({ amount, symbol });
+      } catch (e) {
+        console.error(e);
       }
-      // huh?!
-      if (!tokenAddress) {
-        return;
-      }
-      const tokenContract = await getTokenContract(tokenAddress);
-      const symbol = await tokenContract.methods.symbol().call();
-      const amount = parseFloat(web3.utils.fromWei(await tokenContract.methods.balanceOf(address).call()));
-      setBalance({ amount, symbol });
-    } catch (e) {
-      console.error(e);
     }
+    fetchToken();
   }, [address]);
 
   return (
@@ -63,6 +66,13 @@ export default function Layout({ children, page, back, publish = true }) {
             <div />
           )}
           <div className={styles.actions}>
+            {stats && (
+              <Link href="/stats">
+                <a className={styles.stats}>
+                  Stats &rarr;
+                </a>
+              </Link>
+            )}
             {publish && (
               <Link href="/publish">
                 <a className={styles.publish}>

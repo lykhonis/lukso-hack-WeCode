@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.10+commit.fc410830"
 	},
 	"language": "Solidity",
 	"output": {
@@ -782,11 +782,11 @@
 			]
 		},
 		"contracts/Token.sol": {
-			"keccak256": "0x826b8e5487cbca7c056867230dda4997db8237c3da2884faf42b88c70750a7a0",
+			"keccak256": "0xa16badf13daedb161cc6d6a70a402ea4e7fe34f88ce2a5432fa54873e36c1c49",
 			"license": "CC0-1.0",
 			"urls": [
-				"bzz-raw://417dfa77ad5c97d5b5077c5ff5eeca1fd12e3648ef506f645212eafe5fff85d9",
-				"dweb:/ipfs/QmSBJucmX9dcBgy2RV7TC2za83dH9XxbjmY7ytAQp1Nq3x"
+				"bzz-raw://53bcaf567c138731d06f7b78299faac2165bfbcf0c082ec906ff149bee0d8c5f",
+				"dweb:/ipfs/QmbAipmJuc4Bfo1RSj1HSEGSe2yxqdkioG8R4Kgjq9HjLS"
 			]
 		},
 		"lukso-contracts/contracts/LSP1UniversalReceiver/ILSP1UniversalReceiver.sol": {

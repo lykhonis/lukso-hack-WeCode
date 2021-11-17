@@ -46,18 +46,21 @@ export default function Home() {
     }
   }, [address]);
 
-  useEffect(async () => {
-    try {
-      const indexData = await s3.fetch('index');
-      const index = JSON.parse(indexData);
-      const lessons = await Promise.all(index.lessons.map(async (lesson) => {
-        const data = await s3.fetch(lesson);
-        return JSON.parse(data);
-      }));
-      setLessons(lessons.reverse().map((data, index) => buildLesson(index, data, completLesson)));
-    } catch (e) {
-      console.log(e);
+  useEffect(() => {
+    async function fetchLessons() {
+      try {
+        const indexData = await s3.fetch('index');
+        const index = JSON.parse(indexData);
+        const lessons = await Promise.all(index.lessons.map(async (lesson) => {
+          const data = await s3.fetch(lesson);
+          return JSON.parse(data);
+        }));
+        setLessons(lessons.reverse().map((data, index) => buildLesson(index, data, completLesson)));
+      } catch (e) {
+        console.log(e);
+      }
     }
+    fetchLessons();
   }, [completLesson]);
 
   return (

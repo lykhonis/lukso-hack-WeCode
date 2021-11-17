@@ -19,19 +19,22 @@ export default function useProfile({ address }) {
   const erc725 = getErc725({ address });
   const [data, setData] = useState(null);
 
-  useEffect(async () => {
-    try {
-      const profileData = await erc725.fetchData('LSP3Profile');
-      const profileImage = findMostSuitableImage({
-        images: profileData.LSP3Profile.LSP3Profile.profileImage,
-        minWidth: 100,
-      });
-      setData({
-        imageUrl: resolveUrl(profileImage.url),
-      });
-    } catch (e) {
-      console.error(e);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const profileData = await erc725.fetchData('LSP3Profile');
+        const profileImage = findMostSuitableImage({
+          images: profileData.LSP3Profile.LSP3Profile.profileImage,
+          minWidth: 100,
+        });
+        setData({
+          imageUrl: resolveUrl(profileImage.url),
+        });
+      } catch (e) {
+        console.error(e);
+      }
     }
+    fetchData();
   }, [erc725]);
 
   return data;
