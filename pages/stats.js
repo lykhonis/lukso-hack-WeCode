@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getTokenContract } from '../lukso/token';
+import { getTokenContract, getTokenByOwner } from '../lukso/token';
 import web3 from '../lukso/web3';
 import Layout from '../components/layout';
 import styles from './stats.module.css'
@@ -14,12 +14,14 @@ export default function Stats() {
       try {
         if (!address) return;
 
-        let mockData = [{
-          contributor: '0x74738d3b6B27018f3836EA990d715BdAB21615C6',
-          token: '0x394903A15296cD44408B068F89FC4E80F10D64df',
-        }];
+        const data = [
+          // my token
+          {
+            token: await getTokenByOwner(address),
+          },
+        ];
 
-        const tokens = (await Promise.all(mockData.map(async (data) => {
+        const tokens = (await Promise.all(data.map(async (data) => {
           const tokenContract = await getTokenContract(data.token);
           const symbol = await tokenContract.methods.symbol().call();
           const amount = parseFloat(web3.utils.fromWei(await tokenContract.methods.balanceOf(address).call()));

@@ -6,7 +6,7 @@ body {
     Helvetica Neue, sans-serif;
   color: #0f0f0f;
   background: #fafafa;
-  background: radial-gradient(circle, rgb(246, 251, 252) 0%, rgb(235, 247, 255) 100%);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(242, 250, 255) 100%);
 }
 
 a {
