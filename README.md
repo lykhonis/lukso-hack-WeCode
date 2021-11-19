@@ -8,7 +8,9 @@ Volodymyr Lykhonis (@lykhonis)
 
 ## How To Use
 
-Demo is available [here](https://lukso-hack-we-code.vercel.app/). Uses `L14` Lukso test network.
+To try demo go [here](https://lukso-hack-we-code.vercel.app/). To watch a demo see [here](https://youtu.be/9jnbkvrBBVQ).
+
+Uses `L14` Lukso test network.
 
 To run locally:
 ```
