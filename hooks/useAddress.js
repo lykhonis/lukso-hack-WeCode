@@ -4,12 +4,6 @@ export default function useAddress() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const location = new URL(window.location.href);
-    const address = location.searchParams.get('address');
-    if (address) {
-      localStorage.setItem('address', address);
-    }
-
     setData(localStorage.getItem('address'));
   }, []);
 

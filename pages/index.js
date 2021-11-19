@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Markdown from 'markdown-to-jsx';
-import useAddress from '../hooks/useAddress'
+import useAddress from '../hooks/useAddress';
+import Loader from 'react-spinners/BeatLoader';
 import { getTokenByOwner, awardToken } from '../lukso/token';
 import s3 from '../lukso/s3';
 import Layout from '../components/layout'
@@ -35,14 +36,17 @@ function buildLesson(key, data, onComplete) {
 export default function Home() {
   const { address } = useAddress();
   const [lessons, setLessons] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const completLesson = useCallback(async (lesson) => {
     try {
+      setLoading(true);
       const tokenAddress = await getTokenByOwner(lesson.author);
-      const result = await awardToken(tokenAddress, { student: address });
-      console.log(result);
+      await awardToken(tokenAddress, { student: address });
     } catch (e) {
       console.error(e);
+    } finally {
+      setLoading(false);
     }
   }, [address]);
 
@@ -51,6 +55,7 @@ export default function Home() {
       try {
         const indexData = await s3.fetch('index');
         const index = JSON.parse(indexData);
+        console.log(index);
         const lessons = await Promise.all(index.lessons.map(async (lesson) => {
           const data = await s3.fetch(lesson);
           return JSON.parse(data);
@@ -76,6 +81,12 @@ export default function Home() {
       <div className={styles.lessons}>
         {lessons}
       </div>
+
+      {loading && (
+        <div className={styles.loader}>
+          <Loader loading={true} />
+        </div>
+      )}
     </Layout>
   );
 }

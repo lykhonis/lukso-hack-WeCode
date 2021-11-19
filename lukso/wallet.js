@@ -18,5 +18,8 @@ export async function getWallet() {
   console.log('Loaded existing wallet ', address);
   console.log('Balance ', web3.utils.fromWei(await web3.eth.getBalance(address), 'ether'), 'LYX');
   
-  return address;
+  return {
+    address,
+    privateKey: web3.eth.accounts.wallet[0].privateKey,
+  };
 }

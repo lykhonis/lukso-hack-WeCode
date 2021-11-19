@@ -37,14 +37,14 @@
   justify-content: space-between;
 }
 
-.login {
+.actions {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
-.actions {
+.profileActions {
   display: flex;
   flex-direction: row;
   align-items: flex-start;

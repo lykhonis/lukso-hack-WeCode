@@ -39,7 +39,7 @@ export async function createToken({
 
 export async function getTokenContract(address) {
   const wallet = await getWallet();
-  return new web3.eth.Contract(TokenAbi, address, { from: wallet });
+  return new web3.eth.Contract(TokenAbi, address, { from: wallet.address });
 }
 
 export async function awardToken(address, { student }) {
@@ -47,8 +47,8 @@ export async function awardToken(address, { student }) {
   const contract = await getTokenContract(address);
   const award = contract.methods.award(student);
   const gas = web3.utils.toBN(await award.estimateGas()).mul(web3.utils.toBN(110)).divRound(web3.utils.toBN(100));
-  // const result = await award.send({ gas });
-  console.log(gas.toString());
+  const result = await award.send({ gas });
+  console.log(result);
 }
 
 export async function getTokenMetadata(address) {

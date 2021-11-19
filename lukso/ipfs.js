@@ -3,6 +3,7 @@ export const config = {
 };
 
 export function resolveUrl(url) {
+  if (!url) return null;
   const uurl = new URL(url);
   if (uurl.protocol !== 'ipfs:') {
     return null;

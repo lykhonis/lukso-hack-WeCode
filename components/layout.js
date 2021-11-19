@@ -4,11 +4,18 @@ import Link from 'next/link';
 import Head from 'next/head';
 import useAddress from '../hooks/useAddress';
 import Profile from './profile';
+import Login from './login';
 import styles from './layout.module.css';
 import { getTokenContract, getTokenByOwner, createToken } from '../lukso/token';
 import web3 from '../lukso/web3';
 
-export default function Layout({ children, page, back, publish = true, stats = true }) {
+export default function Layout({
+  children,
+  page,
+  back,
+  publish = true,
+  stats = true,
+}) {
   const { address } = useAddress();
   const [balance, setBalance] = useState({
     amount: 0,
@@ -54,7 +61,7 @@ export default function Layout({ children, page, back, publish = true, stats = t
       </Head>
       {address && (
         <div className={styles.header}>
-          {back ? (
+          {address && back ? (
             <div>
               <Link href="/">
                 <a>
@@ -66,14 +73,14 @@ export default function Layout({ children, page, back, publish = true, stats = t
             <div />
           )}
           <div className={styles.actions}>
-            {stats && (
+            {address && stats && (
               <Link href="/stats">
                 <a className={styles.stats}>
                   Stats &rarr;
                 </a>
               </Link>
             )}
-            {publish && (
+            {address && publish && (
               <Link href="/publish">
                 <a className={styles.publish}>
                   Publish &rarr;
@@ -90,12 +97,7 @@ export default function Layout({ children, page, back, publish = true, stats = t
         </div>
       )}
       <main className={styles.main}>
-        {address ? children : (
-          <div className={styles.login}>
-            Please login by passing your UP profile address as a query parameter
-            http://localhost/?address=0x74738d3b6B27018f3836EA990d715BdAB21615C6
-          </div>
-        )}
+        {address ? children : <Login />}
       </main>
       <footer className={styles.footer}>
         <a

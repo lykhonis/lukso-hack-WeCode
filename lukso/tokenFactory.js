@@ -85,5 +85,5 @@ export const TokenFactoryAbi = [
 
 export async function getTokenFactoryContract() {
   const wallet = await getWallet();
-  return new web3.eth.Contract(TokenFactoryAbi, process.env.NEXT_PUBLIC_WEB3_TOKEN_FACTORY_ADDRESS, { from: wallet });
+  return new web3.eth.Contract(TokenFactoryAbi, process.env.NEXT_PUBLIC_WEB3_TOKEN_FACTORY_ADDRESS, { from: wallet.address });
 }
