@@ -91,7 +91,7 @@ export default function Login() {
         <h1>Sign Up</h1>
 
         <div className="form-row">
-          <label for="signup-image">Profile Image</label>
+          <label htmlFor="signup-image">Profile Image</label>
           <input
             type="file"
             className="filetype"
@@ -126,7 +126,7 @@ export default function Login() {
       </form>
 
       {loading && (
-        <div className={styles.loader}>
+        <div className="loader">
           <Loader loading={true} />
         </div>
       )}

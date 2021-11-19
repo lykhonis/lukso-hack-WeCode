@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Markdown from 'markdown-to-jsx';
 import useAddress from '../hooks/useAddress';
 import Loader from 'react-spinners/BeatLoader';
@@ -34,6 +35,7 @@ function buildLesson(key, data, onComplete) {
 }
 
 export default function Home() {
+  const router = useRouter();
   const { address } = useAddress();
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,6 +45,7 @@ export default function Home() {
       setLoading(true);
       const tokenAddress = await getTokenByOwner(lesson.author);
       await awardToken(tokenAddress, { student: address });
+      router.reload();
     } catch (e) {
       console.error(e);
     } finally {
@@ -83,7 +86,7 @@ export default function Home() {
       </div>
 
       {loading && (
-        <div className={styles.loader}>
+        <div className="loader">
           <Loader loading={true} />
         </div>
       )}

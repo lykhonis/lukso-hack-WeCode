@@ -45,7 +45,7 @@
   margin-top: 40px;
   margin-bottom: 60px;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .subject {
@@ -84,16 +84,4 @@
   background-color: #EE6D4D;
   color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.loader {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.568);
 }
