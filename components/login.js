@@ -29,7 +29,7 @@ export default function Login() {
     } finally {
       setLoading(false);
     }
-  }, [formLogin, router]);
+  }, [formLogin, router, setAddress]);
 
   const handleSignup = useCallback(async (event) => {
     event.preventDefault();
@@ -56,7 +56,7 @@ export default function Login() {
     } finally {
       setLoading(false);
     }
-  }, [formSignup, router]);
+  }, [formSignup, router, setAddress]);
 
   return (
     <div className={styles.container}>

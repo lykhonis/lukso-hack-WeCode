@@ -14,6 +14,7 @@ export default function Profile({ address }) {
       >
         {profile?.imageUrl ? (
           <Image
+            alt="Profile Image"
             src={profile.imageUrl}
             width={48}
             height={48}

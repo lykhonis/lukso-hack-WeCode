@@ -51,7 +51,7 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
-  }, [address]);
+  }, [address, router]);
 
   useEffect(() => {
     async function fetchLessons() {
