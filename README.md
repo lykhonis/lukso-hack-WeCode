@@ -4,7 +4,7 @@ Teach &amp; Learn how to code.
 
 ## Authors
 
-Volodymyr Lykhonis
+Volodymyr Lykhonis (@lykhonis)
 
 ## How To Use
 
