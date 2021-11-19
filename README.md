@@ -41,3 +41,8 @@ Source code for UI and some business logic
 #### `/hooks`, `/lukso`
 
 Utilities to communicate with react state, contracts, ipfs, etc.
+
+## Wishlist
+
+- Secure contracts by utilizing key manager instead of admin of the website/app.
+- Improve logs / events of tokens to scan for all tokens that has been awarded to particular account. This is what displayed on stats page.
