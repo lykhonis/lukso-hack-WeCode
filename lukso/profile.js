@@ -30,4 +30,6 @@ export async function createProfile({
     lsp3Profile: uploadedData,
   });
   console.log(contracts);
+
+  return contracts;
 }

@@ -50,7 +50,8 @@ export default function Login() {
       formSignup.current.reset();
       router.replace('/');
       router.reload();
-      // "address": "0x97BA4A2a0cFED2DbA5e79e5fd89C5F20Cc53a2A3"
+      // 0x97BA4A2a0cFED2DbA5e79e5fd89C5F20Cc53a2A3
+      // 0x1ed52BDbcBF8E0C13d150a9BB1d799207D9be51F
     } catch (e) {
       console.error(e);
     } finally {
