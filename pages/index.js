@@ -16,9 +16,9 @@ function buildLesson(key, data, onComplete) {
       className={styles.lesson}>
       <div className={styles.header}>
         <Profile address={data.author} />
-        <div className={styles.subject}>subject: {data.subject}</div>
+        <div className={styles.subject}>{data.subject}</div>
       </div>
-      <div className={styles.code}>
+      <div>
         <Markdown>
           {data.content}
         </Markdown>
