@@ -37,6 +37,19 @@
   justify-content: space-between;
 }
 
+.signout {
+  margin-top: 10px;
+  width: 24px;
+  height: 24px;
+  color: #3d5a80;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signout:hover {
+  color: #ee6d4d;
+}
+
 .actions {
   display: flex;
   flex-direction: row;

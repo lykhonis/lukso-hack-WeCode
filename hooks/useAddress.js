@@ -10,7 +10,11 @@ export default function useAddress() {
   return {
     address: data,
     setAddress: (newAddress) => {
-      localStorage.setItem('address', newAddress);
+      if (newAddress) {
+        localStorage.setItem('address', newAddress);
+      } else {
+        localStorage.removeItem('address');
+      }
       setData(newAddress);
     },
   };

@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import useAddress from '../hooks/useAddress';
 import Profile from './profile';
 import Login from './login';
@@ -16,7 +18,7 @@ export default function Layout({
   publish = true,
   stats = true,
 }) {
-  const { address } = useAddress();
+  const { address, setAddress } = useAddress();
   const [balance, setBalance] = useState({
     amount: 0,
     symbol: '',
@@ -52,6 +54,10 @@ export default function Layout({
     fetchToken();
   }, [address]);
 
+  const handleSignOut = useCallback(() => {
+    setAddress(null);
+  }, [setAddress]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -68,6 +74,14 @@ export default function Layout({
                   <h2>&larr;</h2>
                 </a>
               </Link>
+            </div>
+          ) : address ? (
+            <div>
+              <FontAwesomeIcon
+                title="Sign Out"
+                icon={faSignOutAlt}
+                className={styles.signout}
+                onClick={handleSignOut} />
             </div>
           ) : (
             <div />
